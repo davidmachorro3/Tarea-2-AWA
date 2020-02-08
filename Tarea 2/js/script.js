@@ -71,12 +71,20 @@ function borrarLista() {
 }
 
 function agregar() {
-	let str = texto.textContent;
-	arreglo.push(str);
+	if(texto.value.length != 0) {	
+		let str = texto.value;
+		arreglo.push(str);
+	} else alert('Ingrese una cadena en la caja de texto')
 	dibujarLista();
 }
 
 function eliminar() {
+	if(lista.value != null) {
+		let seleccionado = lista.value;
+		arreglo = arreglo.filter(x => {
+			return x != seleccionado;
+		})
+	} else alert('La lista no tiene elementos')
 	dibujarLista();
 }
 
